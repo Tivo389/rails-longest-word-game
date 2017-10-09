@@ -1,0 +1,14 @@
+<p>TS <%= Time.now().to_i %></p>
+<p><%= @grid %></p>
+
+
+
+<h3>What is the longest word you can find?</h3>
+<form action="/scoreGrid" method="get">
+  <input type="text" name="query">
+  <input type="hidden" name="time_start" value=<%= Time.now().to_i %>>
+  <!-- <input type="hidden" name="grid" value=<%= @grid.as_json %>> -->
+  <input type="hidden" name="grid" value=<%= @grid.to_json %>>
+  <!-- the to_json caused backslash? appears the opposite in the ispector...... as_json seemed okay until it was passed to the controller at which point it doesnt seem to pass the entire array...-->
+  <input type="submit">
+</form>
